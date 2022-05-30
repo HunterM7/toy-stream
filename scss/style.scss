@@ -241,13 +241,13 @@ p {
 
 	background-image: linear-gradient(
 							to right,
-							transparent 18.5%,
-							$PrimaryColor 18.5%,
+							transparent 16%,
+							$PrimaryColor 16%,
 							$PrimaryColor);
 
 	&__container {
 		display: flex;
-		flex-direction: row;
+		flex-direction: column;
 
 		position: relative;
 
@@ -256,14 +256,12 @@ p {
 		padding-top: 158px;
 	}
 
-	&__info {
-		z-index: 1;
-	}
-
 	&__title {
 		max-width: 1078px;
 
 		margin-bottom: 108px;
+
+		z-index: 1;
 	}
 
 	&__subblock {
@@ -272,6 +270,8 @@ p {
 		align-items: center;
 
 		margin-left: 130px;
+
+		z-index: 1;
 	}
 
 	&__btn {
@@ -304,6 +304,19 @@ p {
 
 	&__desc {
 		max-width: 460px;
+
+		&::before,
+		&::after {
+			display: inline-block;
+		}
+
+		&::before {
+			content: '«';
+		}
+
+		&::after {
+			content: '»';
+		}
 	}
 
 	&__img {
@@ -368,15 +381,13 @@ p {
 			transparent 9.5%,
 			$PrimaryColor 9.5%,
 			$PrimaryColor);
+
+		padding-bottom: 40px;
 	
 			&__container {
-				min-height: 1300px;
-
 				padding-top: 16px;
 				padding-left: 46px;
 			}
-	
-			&__info {}
 	
 			&__title {
 				max-width: 860px;
@@ -386,6 +397,7 @@ p {
 	
 			&__subblock {
 				margin-left: 0;
+				margin-bottom: 24px;
 			}
 	
 			&__btn {}
@@ -393,8 +405,13 @@ p {
 			&__desc {}
 	
 			&__img {
-				right: 50px;
-				bottom: 42px;
+				position: static;
+				bottom: auto;
+				right: auto;
+
+				margin-right: 50px;
+
+				align-self: flex-end;
 			}
 
 			&__social {
@@ -429,6 +446,7 @@ p {
 	.footer {
 	}
 }
+
 @media (max-width: 375px) {
 
 	.wrapper {}
@@ -481,38 +499,60 @@ p {
 			$PrimaryColor);
 	
 			&__container {
-				// min-height: 1300px;
 
 				// padding-top: 16px;
 				padding-left: 14px;
 			}
 	
-			&__info {}
-	
 			&__title {
 				font-size: 32px;
 
+				order: 1;
+
 				// max-width: 860px;
 
-				// margin-bottom: 25px;
+				margin-bottom: 40px;
 			}
 	
 			&__subblock {
-				// margin-left: 0;
+				flex-direction: column;
+				align-items: flex-start;
+				margin-bottom: 0;
+
+				order: 3;
 			}
 	
-			&__btn {}
+			&__btn {
+				margin-bottom: 24px;
+			}
 	
 			&__desc {
 				font-size: 16px;
+
+				&::before,
+				&::after {
+					display: none;
+				}
 			}
 	
 			&__img {
-				// right: 50px;
-				// bottom: 42px;
+				width: 345px;
+				height: 322px;
+
+				margin-right: 14px;
+				margin-bottom: 70px;
+
+				position: static;
+				right: auto;
+				bottom: auto;
+
+				order: 2;
+
+				align-self: center;
 			}
 
 			&__social {
+				display: none;
 				// top: 552px;
 				// left: 46px;
 				// bottom: auto;
